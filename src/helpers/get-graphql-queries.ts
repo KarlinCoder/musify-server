@@ -2,7 +2,7 @@ import path from "path";
 
 import { importAsText } from "./import-as-text";
 
-const graphqlDir = path.resolve(import.meta.dirname, "../graphql");
+const graphqlDir = path.resolve(import.meta.dirname, "../src/graphql");
 
 const query = (file: string) => importAsText(path.join(graphqlDir, file));
 
