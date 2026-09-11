@@ -14,4 +14,5 @@ RUN cp -r src/graphql dist/graphql
 
 ENV NODE_ENV=production PORT=3000
 EXPOSE $PORT
+
 CMD ["pnpm", "start"]
