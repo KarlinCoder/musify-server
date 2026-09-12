@@ -58,7 +58,8 @@ export class DeezerClient {
           "Content-Type": "application/json",
           Cookie: `arl=${this.arl}`,
         },
-        proxy: NODE_ENV === "development" ? PROXY : false,
+        // proxy: NODE_ENV === "development" ? PROXY : false,
+        proxy: PROXY,
       });
 
       console.log(data);
