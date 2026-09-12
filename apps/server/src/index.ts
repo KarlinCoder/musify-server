@@ -3,6 +3,7 @@ import express from "express";
 import deezerRouter from "./controllers/deezer.controller";
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 console.log(import.meta.dirname);

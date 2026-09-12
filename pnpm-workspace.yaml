@@ -1,3 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+
+nodeLinker: "hoisted"
+
 onlyBuiltDependencies:
   - dtrace-provider
   - esbuild

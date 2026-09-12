@@ -84,7 +84,7 @@ export class DeezerService {
     const edges = result.data?.search?.results?.albums?.edges ?? [];
 
     return await Promise.all(
-edges.map(async (edge: any) => {
+      edges.map(async (edge: any) => {
         const node = edge.node;
         const mainContributor = node.contributors.edges[0]?.node;
 
@@ -244,6 +244,8 @@ edges.map(async (edge: any) => {
     const result = await this.client().run(getArtistQuery, { artistId });
     const node = result.data?.artist;
 
+    console.log(node);
+
     if (!node) throw new Error("Artist not found");
 
     const avgColor = await averageColor(node.picture.urls[0]);
@@ -279,7 +281,6 @@ edges.map(async (edge: any) => {
             name: c.node.name,
           })),
           image_url: tNode.album.cover.urls[0],
-          avg_color: trackAvgColor,
           duration_ms: tNode.duration,
           explicit_lyrics: tNode.isExplicit,
         };
