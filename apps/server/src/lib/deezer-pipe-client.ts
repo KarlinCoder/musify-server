@@ -1,6 +1,7 @@
 import { proxy } from "../helpers/proxy";
 import { Buffer } from "buffer";
 import axios from "axios";
+import { NODE_ENV } from "../config/env";
 
 const AUTH_URL = "https://auth.deezer.com/login/arl?jo=p&rto=c&i=c";
 const API_URL = "https://pipe.deezer.com/api";
@@ -57,7 +58,7 @@ export class DeezerClient {
           "Content-Type": "application/json",
           Cookie: `arl=${this.arl}`,
         },
-        proxy: PROXY,
+        proxy: NODE_ENV === "development" ? PROXY : false,
       });
 
       console.log(data);
@@ -93,7 +94,7 @@ export class DeezerClient {
             "Content-Type": "application/json",
             // Cookie: `arl=${this.arl}`,
           },
-          proxy: PROXY,
+          proxy: NODE_ENV === "development" ? PROXY : false,
         },
       );
 
